@@ -38,8 +38,6 @@
    MONGODB_URI=your_mongodb_connection_string_here
    DB_NAME=argo_data
    COLLECTION_NAME=profiles
-   DEBUG=True
-   LOG_LEVEL=INFO
    ```
 
 ## Database Setup
@@ -90,16 +88,6 @@ uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
 uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
 
-### Using Docker
-
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
-
-# Or build and run manually
-docker build -t floatchat .
-docker run -p 8000:8000 --env-file .env floatchat
-```
 
 ## Verification
 

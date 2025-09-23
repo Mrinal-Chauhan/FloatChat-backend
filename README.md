@@ -131,22 +131,6 @@ Argo profiles are stored in MongoDB with the following structure:
 
 ## 🛠️ Development
 
-### Running Tests
-```bash
-pytest tests/
-```
-
-### Code Quality
-```bash
-# Format code
-black app/ scripts/
-
-# Lint code  
-flake8 app/ scripts/
-
-# Type checking
-mypy app/
-```
 
 ### Adding New Features
 
@@ -161,22 +145,16 @@ mypy app/
 
 1. **Environment variables:**
    ```bash
-   export MONGODB_URI="mongodb://prod-server:27017"
    export OPENAI_API_KEY="your-prod-key"
-   export DEBUG=False
-   export LOG_LEVEL=WARNING
+   export MONGODB_URI="mongodb://prod-server:27017"
+   export DB_NAME="argo_data"
+   export COLLECTION_NAME="profiles"
    ```
 
 2. **Run with Gunicorn:**
    ```bash
    pip install gunicorn
    gunicorn app.main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000
-   ```
-
-3. **Using Docker:**
-   ```bash
-   docker build -t floatchat:latest .
-   docker run -p 8000:8000 --env-file .env floatchat:latest
    ```
 
 ## 📚 Documentation
